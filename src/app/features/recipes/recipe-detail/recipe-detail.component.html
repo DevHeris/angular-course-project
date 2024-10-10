@@ -21,7 +21,9 @@
         Manage Recipe <span class="caret"></span>
       </button>
       <div class="dropdown-menu">
-        <li><a href="#">To Shopping List</a></li>
+        <li (click)="onToShoppingList(recipe().ingredients)">
+          <a href="#">To Shopping List</a>
+        </li>
         <li><a href="#">Edit Recipe</a></li>
         <li><a href="#">Delete Recipe</a></li>
       </div>
