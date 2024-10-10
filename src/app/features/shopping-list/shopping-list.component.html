@@ -1,17 +1,12 @@
 <div class="row">
   <div class="col-xs-10">
-    <app-shopping-list-edit
-      (newIngredientAdded)="onIngredientAdded($event)"
-    ></app-shopping-list-edit>
+    <app-shopping-list-edit></app-shopping-list-edit>
     <hr />
     <ul class="list-group">
       @for (ingredient of ingredients; track ingredient) {
-        <a
-          style="cursor: pointer"
-          class="list-group-item"
-          >
-          {{ ingredient.name }} ({{ ingredient.amount }})
-        </a>
+      <a style="cursor: pointer" class="list-group-item">
+        {{ ingredient.name }} ({{ ingredient.amount }})
+      </a>
       }
     </ul>
   </div>

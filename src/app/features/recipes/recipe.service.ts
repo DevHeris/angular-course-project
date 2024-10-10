@@ -1,4 +1,4 @@
-import { EventEmitter, Injectable, output } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Recipe } from './recipe.model';
 
 @Injectable({
@@ -18,12 +18,12 @@ export class RecipeService {
     ),
   ];
 
+  selectedRecipe: Recipe;
   newRecipeSelected = new EventEmitter<Recipe>();
 
-  selectedRecipe: Recipe;
-
   getRecipes(): Recipe[] {
-    return this.recipes;
+    // THE SLICE IS SO THE ACTUAL RECIPE ARRAY ISN'T GIVEN OUT BUT JUST A COPY OF IT
+    return this.recipes.slice();
   }
 
   getSeletedRecipe(): Recipe {

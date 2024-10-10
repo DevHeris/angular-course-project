@@ -12,7 +12,9 @@ export class RecipesComponent {
 
   private recipeService = inject(RecipeService);
 
-  constructor() {
+  constructor() {}
+
+  ngOnInit(): void {
     this.recipeService.newRecipeSelected.subscribe({
       next: (recipe: Recipe) => (this.selectedRecipe = recipe),
     });
