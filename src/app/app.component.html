@@ -2,8 +2,18 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <app-recipes *ngIf="route === 'recipe'"></app-recipes>
-      <app-shopping-list *ngIf="route === 'shopping-list'"></app-shopping-list>
+      @if (route === 'recipe') {
+      <app-recipes></app-recipes>
+      } @if (route === 'shopping-list') {
+      <app-shopping-list></app-shopping-list>
+      }
     </div>
   </div>
 </div>
+
+<p appBasicHighlight>Style me with a basic directive!</p>
+<p appBetterHightlight [defaultColor]="'pink'" [highlightColor]="'lightgreen'">
+  Style me with a better directive!
+</p>
+<p appTextClear></p>
+<p *appUnless="false">Will show only if the condition is false.</p>
