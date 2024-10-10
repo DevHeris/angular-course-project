@@ -14,6 +14,7 @@ import { BasicHighlightDirective } from './directives/basic-highlight.directive'
 import { BetterHightlightDirective } from './directives/better-hightlight.directive';
 import { TextClearDirective } from './directives/text-clear.directive';
 import { UnlessDirective } from './directives/unless.directive';
+import { DropdownDirective } from './directives/dropdown.directive';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { UnlessDirective } from './directives/unless.directive';
     BetterHightlightDirective,
     TextClearDirective,
     UnlessDirective,
+    DropdownDirective,
   ],
   imports: [BrowserModule],
   providers: [],
