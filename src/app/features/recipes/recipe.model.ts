@@ -3,6 +3,7 @@ import { Ingredient } from '../shared/ingredient.model';
 // Recipe model
 export class Recipe {
   constructor(
+    public id: number,
     public name: string,
     public imagePath: string,
     public description: string,

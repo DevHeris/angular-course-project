@@ -9,6 +9,7 @@ import { ShoppingListService } from '../shopping-list/shopping-list.service';
 export class RecipeService {
   recipes: Recipe[] = [
     new Recipe(
+      0,
       'Tasty Schnitzel',
       'https://images.pexels.com/photos/139746/pexels-photo-139746.jpeg',
       'Crispy, breaded chicken schnitzel served with fries and a side salad.',
@@ -24,6 +25,7 @@ export class RecipeService {
       ]
     ),
     new Recipe(
+      1,
       'Spaghetti Bolognese',
       'https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg',
       'Classic Italian pasta with a rich meat sauce.',
@@ -38,6 +40,7 @@ export class RecipeService {
       ]
     ),
     new Recipe(
+      2,
       'Greek Salad',
       'https://images.pexels.com/photos/1437267/pexels-photo-1437267.jpeg',
       'Fresh salad with cucumber, tomato, olives, feta cheese, and a drizzle of olive oil.',
@@ -52,6 +55,7 @@ export class RecipeService {
       ]
     ),
     new Recipe(
+      3,
       'Chocolate Cake',
       'https://images.pexels.com/photos/291528/pexels-photo-291528.jpeg',
       'A moist, rich chocolate cake with dark chocolate glaze.',
@@ -65,6 +69,7 @@ export class RecipeService {
       ]
     ),
     new Recipe(
+      4,
       'Pancakes with Berries',
       'https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg',
       'Fluffy pancakes topped with fresh strawberries, blueberries, and syrup.',
@@ -90,7 +95,11 @@ export class RecipeService {
     return this.recipes.slice();
   }
 
-  getSeletedRecipe(): Recipe {
+  getRecipeById(id: number) {
+    return this.recipes.find((recipe) => recipe.id === id);
+  }
+
+  getSelectedRecipe(): Recipe {
     return this.selectedRecipe;
   }
 

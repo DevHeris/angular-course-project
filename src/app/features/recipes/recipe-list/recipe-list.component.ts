@@ -10,13 +10,9 @@ import { RecipeService } from '../recipe.service';
 export class RecipeListComponent implements OnInit {
   recipes: Recipe[];
 
-  private recipeSevice = inject(RecipeService);
+  private recipeService = inject(RecipeService);
 
   ngOnInit(): void {
-    this.recipes = this.recipeSevice.getRecipes();
-  }
-
-  onSelect(recipe: Recipe) {
-    this.recipeSevice.selectRecipe(recipe);
+    this.recipes = this.recipeService.getRecipes();
   }
 }

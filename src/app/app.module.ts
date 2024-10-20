@@ -11,10 +11,12 @@ import { RecipeDetailComponent } from './features/recipes/recipe-detail/recipe-d
 import { RecipesComponent } from './features/recipes/recipes.component';
 import { ShoppingListEditComponent } from './features/shopping-list/shopping-list-edit/shopping-list-edit.component';
 import { BasicHighlightDirective } from './directives/basic-highlight.directive';
-import { BetterHightlightDirective } from './directives/better-hightlight.directive';
 import { TextClearDirective } from './directives/text-clear.directive';
 import { UnlessDirective } from './directives/unless.directive';
 import { DropdownDirective } from './directives/dropdown.directive';
+import { AppRoutingModule } from './app-routing.module';
+import { BetterHighlightDirective } from './directives/better-highlight.directive';
+import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
 
 @NgModule({
   declarations: [
@@ -27,12 +29,13 @@ import { DropdownDirective } from './directives/dropdown.directive';
     RecipeDetailComponent,
     RecipesComponent,
     BasicHighlightDirective,
-    BetterHightlightDirective,
+    BetterHighlightDirective,
     TextClearDirective,
     UnlessDirective,
     DropdownDirective,
+    RecipeStartComponent,
   ],
-  imports: [BrowserModule],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
 })

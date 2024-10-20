@@ -10,10 +10,10 @@ import {
 } from '@angular/core';
 
 @Directive({
-  selector: '[appBetterHightlight]',
+  selector: '[appBetterHighlight]',
 })
 // An attribute directive
-export class BetterHightlightDirective implements OnInit {
+export class BetterHighlightDirective implements OnInit {
   // Note that you cant alias these type of inputs unlike @Input()
   defaultColor = input<string>();
   highlightColor = input<string>();
