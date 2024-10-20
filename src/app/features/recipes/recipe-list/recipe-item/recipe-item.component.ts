@@ -8,4 +8,5 @@ import { Recipe } from '../../recipe.model';
 })
 export class RecipeItemComponent {
   recipe = input<Recipe>();
+  index = input<number>();
 }

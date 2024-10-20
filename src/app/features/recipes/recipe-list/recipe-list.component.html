@@ -7,7 +7,7 @@
 <div class="row">
   <div class="col-xs-12">
     @for (recipeItem of recipes; track recipeItem) {
-    <app-recipe-item [recipe]="recipeItem"></app-recipe-item>
+    <app-recipe-item [recipe]="recipeItem" [index]="$index"></app-recipe-item>
     }
   </div>
 </div>

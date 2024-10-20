@@ -22,14 +22,12 @@ export class RecipeDetailComponent implements OnChanges, OnInit {
   recipe: Recipe;
 
   ngOnInit(): void {
-    this.recipe = this.recipeService.getRecipeById(+this.id);
+    this.recipe = this.recipeService.getRecipe(+this.id);
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['id'])
-      this.recipe = this.recipeService.getRecipeById(
-        +changes['id'].currentValue
-      );
+      this.recipe = this.recipeService.getRecipe(+changes['id'].currentValue);
   }
 
   onToShoppingList(ingredients: Ingredient[]): void {
