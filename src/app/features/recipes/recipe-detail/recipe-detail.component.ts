@@ -10,6 +10,7 @@ import {
 import { Ingredient } from '../../shared/ingredient.model';
 import { RecipeService } from '../recipe.service';
 import { Recipe } from '../recipe.model';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-recipe-detail',
@@ -18,7 +19,11 @@ import { Recipe } from '../recipe.model';
 })
 export class RecipeDetailComponent implements OnChanges, OnInit {
   @Input() id!: string;
+
   private recipeService = inject(RecipeService);
+  private router = inject(Router);
+  private route = inject(ActivatedRoute);
+
   recipe: Recipe;
 
   ngOnInit(): void {
@@ -32,5 +37,9 @@ export class RecipeDetailComponent implements OnChanges, OnInit {
 
   onToShoppingList(ingredients: Ingredient[]): void {
     this.recipeService.onAddToShoppingList(ingredients);
+  }
+
+  onEditRecipe() {
+    this.router.navigate(['edit'], { relativeTo: this.route });
   }
 }
