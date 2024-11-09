@@ -1,22 +1,16 @@
-import { Component, inject } from '@angular/core';
-import { Recipe } from './recipe.model';
-import { RecipeService } from './recipe.service';
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-recipes',
-  templateUrl: './recipes.component.html',
-  styleUrl: './recipes.component.css',
+    selector: 'app-recipes',
+    templateUrl: './recipes.component.html',
+    styleUrl: './recipes.component.css',
 })
 export class RecipesComponent {
-  selectedRecipe: Recipe;
 
-  private recipeService = inject(RecipeService);
 
-  constructor() {}
+    constructor() { }
 
-  ngOnInit(): void {
-    this.recipeService.newRecipeSelected.subscribe({
-      next: (recipe: Recipe) => (this.selectedRecipe = recipe),
-    });
-  }
+    ngOnInit(): void {
+
+    }
 }
