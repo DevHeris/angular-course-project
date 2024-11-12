@@ -6,8 +6,6 @@ import { Component } from '@angular/core';
     styleUrl: './recipes.component.css',
 })
 export class RecipesComponent {
-
-
     constructor() { }
 
     ngOnInit(): void {

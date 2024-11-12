@@ -4,7 +4,11 @@
     <hr />
     <ul class="list-group">
       @for (ingredient of ingredients; track ingredient) {
-      <a style="cursor: pointer" class="list-group-item">
+      <a
+        style="cursor: pointer"
+        class="list-group-item"
+        (click)="onEditItem($index)"
+      >
         {{ ingredient.name }} ({{ ingredient.amount }})
       </a>
       }
