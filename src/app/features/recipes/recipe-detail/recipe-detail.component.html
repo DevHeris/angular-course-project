@@ -1,6 +1,11 @@
 <div class="row">
   <div class="col-xs-12">
-    <img src="{{ recipe.imagePath }}" [alt]="recipe.name" class="img-responsive" style="max-height: 300px" />
+    <img
+      src="{{ recipe.imagePath }}"
+      [alt]="recipe.name"
+      class="img-responsive"
+      style="max-height: 300px"
+    />
   </div>
 </div>
 <div class="row">
@@ -17,10 +22,16 @@
       </button>
       <div class="dropdown-menu">
         <li (click)="onToShoppingList(recipe.ingredients)">
-          <a style="cursor: pointer;">To Shopping List</a>
+          <a style="cursor: pointer">To Shopping List</a>
         </li>
-        <li><a style="cursor: pointer;" (click)="onEditRecipe()">Edit Recipe</a></li>
-        <li><a style=" cursor: pointer;">Delete Recipe</a></li>
+        <li>
+          <a style="cursor: pointer" (click)="onEditRecipe()">Edit Recipe</a>
+        </li>
+        <li>
+          <a style="cursor: pointer" (click)="onDeleteRecipe()"
+            >Delete Recipe</a
+          >
+        </li>
       </div>
     </div>
   </div>

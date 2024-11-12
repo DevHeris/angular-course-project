@@ -1,0 +1,9 @@
+input.ng-invalid.ng-dirty,
+textarea.ng-invalid.ng-dirty {
+  background-color: rgba(255, 192, 203, 0.274);
+}
+
+input.ng-valid.ng-dirty,
+textarea.ng-valid.ng-dirty {
+  background-color: rgba(163, 241, 163, 0.274);
+}
