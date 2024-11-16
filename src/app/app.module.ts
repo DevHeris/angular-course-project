@@ -17,9 +17,10 @@ import { UnlessDirective } from './directives/unless.directive';
 import { DropdownDirective } from './directives/dropdown.directive';
 import { AppRoutingModule } from './app-routing.module';
 import { BetterHighlightDirective } from './directives/better-highlight.directive';
-import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
-import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
+import { RecipeStartComponent } from './features/recipes/recipe-start/recipe-start.component';
+import { RecipeEditComponent } from './features/recipes/recipe-edit/recipe-edit.component';
 import { provideHttpClient, withFetch } from '@angular/common/http';
+import { AuthComponent } from './auth/auth.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { provideHttpClient, withFetch } from '@angular/common/http';
     DropdownDirective,
     RecipeStartComponent,
     RecipeEditComponent,
+    AuthComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [provideHttpClient(withFetch())],

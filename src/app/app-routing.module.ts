@@ -3,12 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { ShoppingListComponent } from './features/shopping-list/shopping-list.component';
 import { RecipesComponent } from './features/recipes/recipes.component';
 import { RecipeDetailComponent } from './features/recipes/recipe-detail/recipe-detail.component';
-import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
-import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
+import { RecipeStartComponent } from './features/recipes/recipe-start/recipe-start.component';
+import { RecipeEditComponent } from './features/recipes/recipe-edit/recipe-edit.component';
 import { recipesResolver } from './features/recipes/recipes.resolver';
+import { AuthComponent } from './auth/auth.component';
 
 const routes: Routes = [
   { path: 'shopping-list', component: ShoppingListComponent },
+  { path: 'auth', component: AuthComponent },
   {
     path: 'recipes',
     component: RecipesComponent,

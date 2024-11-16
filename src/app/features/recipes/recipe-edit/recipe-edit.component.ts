@@ -7,8 +7,8 @@ import {
   Validators,
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { RecipeService } from '../../features/recipes/recipe.service';
-import { Recipe } from '../../features/recipes/recipe.model';
+import { RecipeService } from '../recipe.service';
+import { Recipe } from '../recipe.model';
 
 @Component({
   selector: 'app-recipe-edit',
