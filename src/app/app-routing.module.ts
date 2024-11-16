@@ -19,7 +19,11 @@ const routes: Routes = [
         path: ':id',
         component: RecipeDetailComponent,
       },
-      { path: ':id/edit', component: RecipeEditComponent },
+      {
+        path: ':id/edit',
+        component: RecipeEditComponent,
+        resolve: { recipes: recipesResolver },
+      },
       { path: '', component: RecipeStartComponent, pathMatch: 'full' },
     ],
   },
