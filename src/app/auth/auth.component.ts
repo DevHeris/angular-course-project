@@ -14,7 +14,9 @@ export class AuthComponent {
    */
   @ViewChild('authForm', { static: false }) authForm: NgForm;
   private authService = inject(AuthService);
-  isLoginMode: boolean = false;
+  isLoginMode: boolean = true;
+  isLoading: boolean = false;
+  error: string | null = null;
 
   onSwitchMode(): void {
     this.isLoginMode = !this.isLoginMode;
@@ -22,13 +24,22 @@ export class AuthComponent {
 
   onSubmit(): void {
     if (this.authForm.invalid) return;
+
+    this.isLoading = true;
     if (this.isLoginMode) {
+      // ,,,
     } else {
       this.authService.signup(this.authForm.value).subscribe({
-        next: (resData) => console.log(resData),
-        error: (err) => console.log(err),
+        next: (resData) => {
+          console.log(resData);
+          this.isLoading = false;
+        },
+        error: (errMessage) => {
+          console.log(errMessage);
+          this.isLoading = false;
+          this.error = errMessage;
+        },
       });
     }
-    this.authForm.reset();
   }
 }

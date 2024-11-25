@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { catchError, Observable, throwError } from 'rxjs';
 
 interface AuthResponseData {
   displayName?: string;
@@ -26,16 +26,29 @@ export class AuthService {
   }): Observable<AuthResponseData> {
     const bodyPayload = { ...user, returnSecureToken: true };
 
-    return this.http.post<AuthResponseData>(
-      'https://identitytoolkit.googleapis.com/v1/accounts:signUp',
-      bodyPayload,
-      {
-        params: { key: this.apiKey },
-      }
-    );
+    return this.http
+      .post<AuthResponseData>(
+        'https://identitytoolkit.googleapis.com/v1/accounts:signUp',
+        bodyPayload,
+        {
+          params: { key: this.apiKey },
+        }
+      )
+      .pipe(
+        catchError((errorRes) => {
+          let errorMessage = 'An error occurred!';
+          if (!errorRes.error || !errorRes.error.error)
+            return throwError(() => errorRes);
+          switch (errorRes.error.error.message) {
+            case 'EMAIL_EXISTS':
+              errorMessage = 'This email exists already!';
+          }
+          return throwError(() => errorMessage);
+        })
+      );
   }
 
-  signin(user: {
+  login(user: {
     email: string;
     password: string;
   }): Observable<AuthResponseData> {

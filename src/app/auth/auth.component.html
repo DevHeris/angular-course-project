@@ -1,5 +1,16 @@
 <div class="row">
   <div class="col-xs-12 col-md-6 col-md-offset-3">
+    @if(error){
+    <div class="alert alert-danger">
+      <p>
+        {{ error }}
+      </p>
+    </div>
+    } @if(isLoading){
+    <div style="text-align: center">
+      <app-loading-spinner></app-loading-spinner>
+    </div>
+    } @else{
     <form (ngSubmit)="onSubmit()" #authForm="ngForm">
       <div class="form-group">
         <label for="email">E-mail</label>
@@ -35,9 +46,10 @@
         </button>
         &nbsp;
         <button class="btn btn-primary" (click)="onSwitchMode()" type="button">
-          Switch to {{ isLoginMode ? "Log in" : "Sign up" }}
+          Switch to {{ isLoginMode ? "Sign up" : "Log in" }}
         </button>
       </div>
     </form>
+    }
   </div>
 </div>
