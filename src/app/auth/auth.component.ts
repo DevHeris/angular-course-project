@@ -1,6 +1,8 @@
 import { Component, inject, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { AuthService } from './auth.service';
+import { AuthResponseData, AuthService } from './auth.service';
+import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-auth',
@@ -14,6 +16,7 @@ export class AuthComponent {
    */
   @ViewChild('authForm', { static: false }) authForm: NgForm;
   private authService = inject(AuthService);
+  private router = inject(Router);
   isLoginMode: boolean = true;
   isLoading: boolean = false;
   error: string | null = null;
@@ -24,22 +27,27 @@ export class AuthComponent {
 
   onSubmit(): void {
     if (this.authForm.invalid) return;
-
     this.isLoading = true;
+
+    // Storing the observable in authObs helps prevent code duplication
+    let authObs: Observable<AuthResponseData>;
+
     if (this.isLoginMode) {
-      // ,,,
+      authObs = this.authService.login(this.authForm.value);
     } else {
-      this.authService.signup(this.authForm.value).subscribe({
-        next: (resData) => {
-          console.log(resData);
-          this.isLoading = false;
-        },
-        error: (errMessage) => {
-          console.log(errMessage);
-          this.isLoading = false;
-          this.error = errMessage;
-        },
-      });
+      authObs = this.authService.signup(this.authForm.value);
     }
+    authObs.subscribe({
+      next: (resData) => {
+        console.log(resData);
+        this.isLoading = false;
+        this.router.navigate(['/recipes']);
+      },
+      error: (errMessage) => {
+        console.log(errMessage);
+        this.isLoading = false;
+        this.error = errMessage;
+      },
+    });
   }
 }

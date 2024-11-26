@@ -19,9 +19,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { BetterHighlightDirective } from './directives/better-highlight.directive';
 import { RecipeStartComponent } from './features/recipes/recipe-start/recipe-start.component';
 import { RecipeEditComponent } from './features/recipes/recipe-edit/recipe-edit.component';
-import { provideHttpClient, withFetch } from '@angular/common/http';
+import {
+  provideHttpClient,
+  withFetch,
+  withInterceptors,
+} from '@angular/common/http';
 import { AuthComponent } from './auth/auth.component';
 import { LoadingSpinnerComponent } from './features/shared/loading-spinner/loading-spinner.component';
+import { authInterceptor } from './auth/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -44,7 +49,9 @@ import { LoadingSpinnerComponent } from './features/shared/loading-spinner/loadi
     LoadingSpinnerComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
-  providers: [provideHttpClient(withFetch())],
+  providers: [
+    provideHttpClient(withFetch(), withInterceptors([authInterceptor])),
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
