@@ -11,7 +11,7 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
     exhaustMap((user) => {
       const token = user?.token;
 
-      if (token) {     
+      if (token) {
         const clonedRequest = req.clone({
           setParams: {
             auth: token,

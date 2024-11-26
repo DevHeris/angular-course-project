@@ -19,7 +19,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         @if(isAuthenticated){
-        <li style="cursor: pointer">
+        <li style="cursor: pointer" (click)="onLogout()">
           <a>Logout</a>
         </li>
         } @if(isAuthenticated){
